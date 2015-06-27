@@ -31,7 +31,11 @@
 				<?php
 					if ( is_front_page() && is_home() ) : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
+					<?php else : 
+						the_post_navigation( array(
+							'prev_text' => _x( '<span class="post-title">%title</span>', 'Parent post link', 'twentyfifteen' ),
+						) );
+					?>
 					<?php endif;
 
 					$description = get_bloginfo( 'description', 'display' );
