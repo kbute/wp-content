@@ -19,11 +19,6 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-					<nav id="image-navigation" class="navigation image-navigation">
-						<div class="nav-links">
-							<div class="nav-previous"><?php previous_image_link( false, __( 'Previous Image', 'twentyfifteen' ) ); ?></div><div class="nav-next"><?php next_image_link( false, __( 'Next Image', 'twentyfifteen' ) ); ?></div>
-						</div><!-- .nav-links -->
-					</nav><!-- .image-navigation -->
 					<div class="entry-content">
 						<div class="entry-attachment">
 							<?php
@@ -60,6 +55,11 @@ get_header(); ?>
 						?>
 					</div><!-- .entry-content -->
 
+					<nav id="image-navigation" class="navigation image-navigation">
+						<div class="nav-links">
+							<div class="nav-previous"><?php previous_image_link( false, __( 'Previous Image', 'twentyfifteen' ) ); ?></div><div class="nav-next"><?php next_image_link( false, __( 'Next Image', 'twentyfifteen' ) ); ?></div>
+						</div><!-- .nav-links -->
+					</nav><!-- .image-navigation -->
 					<footer class="entry-footer">
 						<?php twentyfifteen_entry_meta(); ?>
 						<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
