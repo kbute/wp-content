@@ -40,11 +40,8 @@
 						<h1 class="site-title"><a href="<?php echo get_permalink($parent_id);?>" rel="home"><?php echo $parent_data->post_title; ?></a></h1>
 					<?php elseif(is_page()) :?>
 						<h1 class="site-title"><a href="./" rel="home"><?php echo $post_data->post_title; ?></a></h1>
-					<?php else : 
-						the_post_navigation( array(
-							'prev_text' => _x( '<span class="post-title">%title</span>', 'Parent post link', 'twentyfifteen' ),
-						) );
-					?>
+					<?php else : ?>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 					<?php endif;
 
 					$description = get_bloginfo( 'description', 'display' );
