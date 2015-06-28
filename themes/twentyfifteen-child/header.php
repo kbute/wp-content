@@ -30,8 +30,14 @@
 			<div class="site-branding">
 				<?php
 					$post_data = get_post();
+					//print_r($post_data);
 					if ( is_front_page() && is_home() ) : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php elseif(is_attachment()) :
+						$parent_id = $post_data->post_parent;
+						$parent_data = get_post($parent_id);
+					?>
+						<h1 class="site-title"><a href="<?php echo get_permalink($parent_id);?>" rel="home"><?php echo $parent_data->post_title; ?></a></h1>
 					<?php elseif(is_page()) :?>
 						<h1 class="site-title"><a href="./" rel="home"><?php echo $post_data->post_title; ?></a></h1>
 					<?php else : 
