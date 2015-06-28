@@ -29,8 +29,11 @@
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
 				<?php
+					$post_data = get_post();
 					if ( is_front_page() && is_home() ) : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php elseif(is_page()) :?>
+						<h1 class="site-title"><a href="./" rel="home"><?php echo $post_data->post_title; ?></a></h1>
 					<?php else : 
 						the_post_navigation( array(
 							'prev_text' => _x( '<span class="post-title">%title</span>', 'Parent post link', 'twentyfifteen' ),
